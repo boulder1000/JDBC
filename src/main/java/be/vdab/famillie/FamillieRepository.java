@@ -30,13 +30,17 @@ public class FamillieRepository extends AbstractRepository{
             statement.setString(4,null);
             statement.setInt(5,600);
             statement.addBatch();
-            statement.executeUpdate();
+            statement.executeBatch();
             var result = statement.getGeneratedKeys();
             result.next();
-            var nieuweId = result.getLong(1);
+            var nieuweId1 = result.getLong(1);
+            result.next();
+            var nieuweId2 = result.getLong(1);
+
             for (String naam : persoonList) {
                 statement.setString(2, naam);
-                statement.setLong(3,nieuweId);
+                statement.setLong(3,nieuweId1);
+                statement.setLong(3,nieuweId2);
                 statement.addBatch();
             }
             statement.executeBatch();

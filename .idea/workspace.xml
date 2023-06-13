@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7fbbde0-c667-4a93-afdf-fa4ec7ce4760" name="Changes" comment="oefeningen JDBC 1" />
+    <list default="true" id="b7fbbde0-c667-4a93-afdf-fa4ec7ce4760" name="Changes" comment="oefeningen JDBC 1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/AbstractRespository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/BankRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/Rekening.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/vdab/famillie/AbstractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/vdab/famillie/AbstractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/vdab/famillie/FamillieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/vdab/famillie/FamillieRepository.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,13 +30,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
   <component name="ProjectId" id="2Qp5RIRejZHWMA60V89TW2byeoI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
