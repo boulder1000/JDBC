@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         var bankrepository = new BankRepository();
-        var rekening1 = new Rekening("BE72891012240116", 200);
 
         System.out.println("1. nieuwe rekening");
         System.out.println("2. Saldo consulteren");
