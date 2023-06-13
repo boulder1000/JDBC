@@ -1,10 +1,7 @@
 package be.vdab.Bank;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class BankRepository extends AbstractRepository {
@@ -42,7 +39,7 @@ public class BankRepository extends AbstractRepository {
             statement.setString(1, rekeningnummer);
             var result = statement.executeQuery();
             connection.commit();
-            return result.getString("nummer") != "";
+            return !Objects.equals(result.getString("nummer"), "");
         }
     }
 
@@ -55,11 +52,7 @@ public class BankRepository extends AbstractRepository {
             return false;
         } else if (!(controleGetal >= 2 && controleGetal <= 98)) {
             return false;
-        } else if ((controleGetal2 % 97) != 1) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return (controleGetal2 % 97) == 1;
     }
 
     public long findByID(String nummer) throws SQLException {

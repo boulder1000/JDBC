@@ -42,14 +42,8 @@ public class Main {
                         System.out.println(ex);
                     }
                 }
-                case 0 -> {
-                    System.exit(0);
-                    try {
-
-                    } catch (Exception ex) {
-                        System.out.println(ex);
-                    }
-                }
+                case 0 -> System.exit(0);
             }
         }
-    }}
+    }
+}

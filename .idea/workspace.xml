@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7fbbde0-c667-4a93-afdf-fa4ec7ce4760" name="Changes" comment="test JDBC 3">
+    <list default="true" id="b7fbbde0-c667-4a93-afdf-fa4ec7ce4760" name="Changes" comment="test JDBC 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/BankRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/BankRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +82,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686652747426</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="test JDBC 4">
+      <created>1686654844292</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1686654844292</updated>
+    </task>
+    <task id="LOCAL-00006" summary="test JDBC 4">
+      <created>1686654874854</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686654874854</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -89,6 +104,7 @@
     <MESSAGE value="test JDBC 1" />
     <MESSAGE value="test JDBC 2" />
     <MESSAGE value="test JDBC 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="test JDBC 3" />
+    <MESSAGE value="test JDBC 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="test JDBC 4" />
   </component>
 </project>
