@@ -84,24 +84,24 @@ public class BankRepository extends AbstractRepository {
         }
     }
 
-    public void overschrijven(Rekening vanRekening, Rekening naarRekening, long bedrag) throws SQLException {
+    public void overschrijven(String vanRekening, String naarRekening, long bedrag) throws SQLException {
         try (var connection = super.getConnection()) {
             connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
             connection.setAutoCommit(false);
-            if (Objects.equals(vanRekening.getRekeningNummer(), naarRekening.getRekeningNummer())) {
+            if (Objects.equals(vanRekening, naarRekening)) {
                 throw new IllegalArgumentException("van en naar zijn hetzelfde");
             }
             if (bedrag <= 0) {
                 throw new IllegalArgumentException("bedrag moet groter zijn dan 0");
             }
-            if (!rekeninControleBestaat(vanRekening.getRekeningNummer())) {
+            if (!rekeninControleBestaat(vanRekening)) {
                 throw new IllegalArgumentException("van rekening bestaat niet");
             }
-            if (!rekeninControleBestaat(naarRekening.getRekeningNummer())) {
+            if (!rekeninControleBestaat(naarRekening)) {
                 throw new IllegalArgumentException("naar rekening bestaat niet");
             }
-            verhoogSaldo(naarRekening.getRekeningNummer(),connection,bedrag);
-            verlaagSaldo(vanRekening.getRekeningNummer(),connection,bedrag);
+            verhoogSaldo(naarRekening,connection,bedrag);
+            verlaagSaldo(vanRekening,connection,bedrag);
             connection.commit();
         }
 
