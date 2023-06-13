@@ -40,6 +40,7 @@ public class BankRepository extends AbstractRepository {
             connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
             connection.setAutoCommit(false);
             var result = statement.executeQuery();
+            statement.setString(1, rekeningnummer);
             connection.commit();
             return result.getString("nummer") != "";
         }
