@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7fbbde0-c667-4a93-afdf-fa4ec7ce4760" name="Changes" comment="test JDBC 4">
+    <list default="true" id="b7fbbde0-c667-4a93-afdf-fa4ec7ce4760" name="Changes" comment="test JDBC 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/AbstractRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/AbstractRespository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/BankRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/BankRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/Rekening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/be/vdab/Bank/Rekening.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +39,11 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -96,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686654874854</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="test JDBC 5">
+      <created>1686658428779</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1686658428779</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -105,6 +118,7 @@
     <MESSAGE value="test JDBC 2" />
     <MESSAGE value="test JDBC 3" />
     <MESSAGE value="test JDBC 4" />
-    <option name="LAST_COMMIT_MESSAGE" value="test JDBC 4" />
+    <MESSAGE value="test JDBC 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="test JDBC 5" />
   </component>
 </project>

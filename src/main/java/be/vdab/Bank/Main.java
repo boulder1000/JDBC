@@ -1,22 +1,22 @@
 package be.vdab.Bank;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         var bankrepository = new BankRepository();
-
-        System.out.println("1. nieuwe rekening");
-        System.out.println("2. Saldo consulteren");
-        System.out.println("3. Overschrijven");
-        System.out.println("0. Om te stoppen");
         var scanner = new Scanner(System.in);
         while (true) {
+            System.out.println("1. nieuwe rekening");
+            System.out.println("2. Saldo consulteren");
+            System.out.println("3. Overschrijven");
+            System.out.println("0. Om te stoppen");
             switch (scanner.nextInt()) {
                 case 1 -> {
                     System.out.println("geef rekeningnummer in");
                     try {
-                        bankrepository.nieuweRekening(new Rekening(scanner.next(), 0));
+                        bankrepository.nieuweRekening(new Rekening(scanner.next(), BigDecimal.ZERO));
                     } catch (Exception ex) {
                         System.out.println(ex);
                     }
@@ -35,7 +35,7 @@ public class Main {
                     System.out.println("naar rekening");
                     String naar = scanner.next();
                     System.out.println("bedrag");
-                    long bedrag = Long.parseLong(scanner.next());
+                    BigDecimal bedrag = scanner.nextBigDecimal();
                     try {
                         bankrepository.overschrijven(van, naar, bedrag);
                     } catch (Exception ex) {

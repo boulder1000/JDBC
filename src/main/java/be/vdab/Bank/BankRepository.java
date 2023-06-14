@@ -1,5 +1,6 @@
 package be.vdab.Bank;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Objects;
@@ -10,15 +11,14 @@ public class BankRepository extends AbstractRepository {
             var sql = """
                     insert into bank.rekeningen(nummer, saldo)
                     values (?, ?)
-                    for update
                       """;
             try (var connection = super.getConnection();
                  var statement = connection.prepareStatement(sql)) {
                 connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
                 connection.setAutoCommit(false);
                 statement.setString(1, rekening.getRekeningNummer());
-                statement.setLong(2, rekening.getSaldo());
-                statement.executeQuery();
+                statement.setBigDecimal(2, rekening.getSaldo());
+                statement.executeUpdate();
                 connection.commit();
 
             }
@@ -28,8 +28,9 @@ public class BankRepository extends AbstractRepository {
     }
 
     public boolean rekeninControleBestaat(String rekeningnummer) throws SQLException {
+        boolean bool = true;
         var sql = """
-                select nummer from bank where nummer = ?
+                select nummer from bank.rekeningen where nummer = ?
                 for update
                 """;
         try (var connection = super.getConnection();
@@ -38,14 +39,21 @@ public class BankRepository extends AbstractRepository {
             connection.setAutoCommit(false);
             statement.setString(1, rekeningnummer);
             var result = statement.executeQuery();
+            result.next() ;
+            if (result.next()){
+                bool = false;
+            }
+
+
             connection.commit();
-            return !Objects.equals(result.getString("nummer"), "");
+            return bool;
+
         }
     }
 
     public boolean rekeningControleGeldig(String rekeningnummer) {
         int controleGetal = Integer.parseInt(rekeningnummer.substring(2, 4));
-        int controleGetal2 = Integer.parseInt(rekeningnummer.substring(4, 16) + "1114" + controleGetal);
+        long controleGetal2 = Long.parseLong(rekeningnummer.substring(4, 16) + "1114" + controleGetal);
         if (rekeningnummer.length() != 16) {
             return false;
         } else if (!(rekeningnummer.startsWith("BE"))) {
@@ -55,11 +63,11 @@ public class BankRepository extends AbstractRepository {
         } else return (controleGetal2 % 97) == 1;
     }
 
-    public long findByID(String nummer) throws SQLException {
-        long saldo;
+    public BigDecimal findByID(String nummer) throws SQLException {
+        BigDecimal saldo;
         var sql = """
                 select saldo
-                from bank
+                from bank.rekeningen
                 where nummer = ?
                 for update
                 """;
@@ -70,21 +78,21 @@ public class BankRepository extends AbstractRepository {
             statement.setString(1, nummer);
             var result = statement.executeQuery();
             result.next();
-            saldo = result.getLong("nummer");
+            saldo = result.getBigDecimal("saldo");
             connection.commit();
             return saldo;
 
         }
     }
 
-    public void overschrijven(String vanRekening, String naarRekening, long bedrag) throws SQLException {
+    public void overschrijven(String vanRekening, String naarRekening, BigDecimal bedrag) throws SQLException {
         try (var connection = super.getConnection()) {
             connection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
             connection.setAutoCommit(false);
             if (Objects.equals(vanRekening, naarRekening)) {
                 throw new IllegalArgumentException("van en naar zijn hetzelfde");
             }
-            if (bedrag <= 0) {
+            if (bedrag.signum() <= 0) {
                 throw new IllegalArgumentException("bedrag moet groter zijn dan 0");
             }
             if (!rekeninControleBestaat(vanRekening)) {
@@ -100,30 +108,28 @@ public class BankRepository extends AbstractRepository {
 
     }
 
-    private void verhoogSaldo(String id, Connection connection, long bedrag)
+    private void verhoogSaldo(String id, Connection connection, BigDecimal bedrag)
             throws SQLException {
         var sql = """
                     update bank.rekeningen
                     set saldo = saldo + ?
                     where nummer = ?
-                    for update
                     """;
         try (var statement = connection.prepareStatement(sql)) {
-            statement.setLong(1, bedrag);
+            statement.setBigDecimal(1, bedrag);
             statement.setString(2, id);
             statement.executeUpdate();
         }
     }
-    private void verlaagSaldo(String id, Connection connection, long bedrag)
+    private void verlaagSaldo(String id, Connection connection, BigDecimal bedrag)
             throws SQLException {
         var sql = """
                     update bank.rekeningen
                     set saldo = saldo - ?
                     where nummer = ?
-                    for update
                     """;
         try (var statement = connection.prepareStatement(sql)) {
-            statement.setLong(1, bedrag);
+            statement.setBigDecimal(1, bedrag);
             statement.setString(2, id);
             statement.executeUpdate();
         }
